@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<empreses>
+  <empresa>
+    <nom>Teixits Montsià</nom>
+    <municipi>Amposta</municipi>
+    <sector>Tèxtil</sector>
+  </empresa>
+  <empresa>
+    <nom>Forns de la Ràpita</nom>
+    <municipi>La Ràpita</municipi>
+    <sector>Alimentació</sector>
+  </empresa>
+  <empresa>
+    <nom>ElectroEbre</nom>
+    <municipi>Ulldecona</municipi>
+    <sector>Electrònica</sector>
+  </empresa>
+</empreses>
