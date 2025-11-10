@@ -1,4 +1,9 @@
-/* --- 1. Textos de Cantó (Simplificat) --- */
+/* --- ESTILOS DE ESQUINA (Minimalista) --- */
+/* Hacemos el texto de las esquinas muy sutil:
+  - Sin fondo
+  - Color gris muy claro y semi-transparente
+  - Pequeño
+*/
 .lletra-esquina {
     position: absolute;   
     top: 20px;            
@@ -21,32 +26,25 @@
     color: black;
 }
 
-/* --- 2. ¡MÈTODE DE FONS AMB OMBRES NEGRES! --- */
+/* --- FONDO (Original) --- */
+/* Mantenemos el fondo original que tenías, 
+  ya que funciona bien con el estilo. 
+*/
 body {
-    /* Color de fons base */
     background-color: lightgray;
-    
-    /* ¡¡CANVI AQUÍ!! 
-     * He canviat el color a negre (0,0,0) i he pujat l'opacitat 
-     * (de 0.3 a 0.5) perquè es noti molt més.
-     */
     background-image:
-        /* Núvol 1: A baix-esquerra */
         radial-gradient(
-            circle at 10% 90%, /* Posició */
-            rgba(0, 0, 0, 0.5) 0%, /* Negre al 50% d'opacitat */
-            transparent 40% /* Es difumina */
+            circle at 10% 90%, 
+            rgba(0, 0, 0, 0.5) 0%, 
+            transparent 40% 
         ),
-        /* Núvol 2: A baix-dreta */
         radial-gradient(
-            circle at 90% 80%, /* Posició */
-            rgba(0, 0, 0, 0.45) 0%, /* Negre al 45% d'opacitat */
-            transparent 50% /* Es difumina */
+            circle at 90% 80%, 
+            rgba(0, 0, 0, 0.45) 0%, 
+            transparent 50% 
         );
     
     background-repeat: no-repeat;
-    
-    /* La resta del teu CSS */
     margin: 0;
     font-family: Arial, sans-serif;
     display: flex;
@@ -56,13 +54,12 @@ body {
     overflow: hidden; 
 }
 
-/* --- 3. Contenidor (Simplificat) --- */
 .container {
     display: flex;    
     gap: 20px; 
 }
 
-/* --- 4. Caixes (Sense canvis) --- */
+/* --- CAJAS "DERRETIDAS" (Aquí está la magia) --- */
 .box {
     width: 300px;
     height: 300px;
@@ -73,15 +70,39 @@ body {
     justify-content: center;
     font-weight: bold;
     cursor: pointer; 
-    transition: transform 0.3s ease, 
-                box-shadow 0.3s ease, 
-                opacity 0.3s ease;
     font-size: 120px ;
+
+    /* EL "TRUCO" PARA EL DERRETIDO:
+     Usamos 8 valores de border-radius para crear una forma
+     orgánica, como una gota o una célula.
+     ¡Esto es lo que crea el efecto "derretido" no forzado!
+    */
+    border-radius: 45% 55% 60% 40% / 65% 50% 50% 35%;
+    
+    /* Animamos todo, INCLUYENDO el border-radius.
+      Esto hará que la forma "baile" o "se mueva"
+      como un líquido cuando pasas el ratón por encima.
+    */
+    transition: transform 0.5s ease-in-out, 
+                box-shadow 0.5s ease-in-out, 
+                opacity 0.3s ease,
+                border-radius 0.8s ease-in-out; /* Animación lenta para la forma */
 }
+
 .box:hover {
-    transform: translateY(-8px); 
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); 
+    /* Hacemos que flote un poco más 
+      y le damos una sombra más pronunciada 
+    */
+    transform: translateY(-12px) scale(1.03); 
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3); 
+    
+    /* ¡Cambiamos la forma del border-radius al pasar el ratón!
+      Esto es lo que le da el toque "líquido" y vivo.
+      La forma cambia a otra forma orgánica.
+    */
+    border-radius: 60% 40% 45% 55% / 50% 65% 35% 50%;
 }
+
 .box.clicked {
     transform: scale(0.95);
     opacity: 0.7;         
