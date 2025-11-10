@@ -1,0 +1,88 @@
+/* --- 1. Textos de Cantó (Simplificat) --- */
+.lletra-esquina {
+    position: absolute;   
+    top: 20px;            
+    left: 20px;   
+    background-color: lightslategrey; 
+    padding: 10px 15px;        
+    border-radius: 5px;        
+    font-size: medium; 
+    color: black;
+}
+
+.lletra-esquina-dreta {
+    position: absolute;   
+    top: 20px;            
+    right: 20px;   
+    background-color: lightslategrey; 
+    padding: 10px 15px;        
+    border-radius: 5px;        
+    font-size: medium; 
+    color: black;
+}
+
+/* --- 2. ¡MÈTODE DE FONS AMB OMBRES NEGRES! --- */
+body {
+    /* Color de fons base */
+    background-color: lightgray;
+    
+    /* ¡¡CANVI AQUÍ!! 
+     * He canviat el color a negre (0,0,0) i he pujat l'opacitat 
+     * (de 0.3 a 0.5) perquè es noti molt més.
+     */
+    background-image:
+        /* Núvol 1: A baix-esquerra */
+        radial-gradient(
+            circle at 10% 90%, /* Posició */
+            rgba(0, 0, 0, 0.5) 0%, /* Negre al 50% d'opacitat */
+            transparent 40% /* Es difumina */
+        ),
+        /* Núvol 2: A baix-dreta */
+        radial-gradient(
+            circle at 90% 80%, /* Posició */
+            rgba(0, 0, 0, 0.45) 0%, /* Negre al 45% d'opacitat */
+            transparent 50% /* Es difumina */
+        );
+    
+    background-repeat: no-repeat;
+    
+    /* La resta del teu CSS */
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden; 
+}
+
+/* --- 3. Contenidor (Simplificat) --- */
+.container {
+    display: flex;    
+    gap: 20px; 
+}
+
+/* --- 4. Caixes (Sense canvis) --- */
+.box {
+    width: 300px;
+    height: 300px;
+    background-color: lightslategray;
+    color:black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer; 
+    transition: transform 0.3s ease, 
+                box-shadow 0.3s ease, 
+                opacity 0.3s ease;
+    font-size: 120px ;
+}
+.box:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); 
+}
+.box.clicked {
+    transform: scale(0.95);
+    opacity: 0.7;         
+}
