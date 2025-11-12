@@ -1,0 +1,184 @@
+/*CSS de YoHerman*/
+/*CSS Básico del body y el formato del título.*/
+body {
+  font-family: Arial, sans-serif;
+  background-color: #D7D7E0;
+  color: #222;
+  margin: 0;
+  padding: 2rem;
+}
+
+h1 {
+  width: 90%;
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: center;
+  padding: 2rem;
+  background-color: #BDBDCC;
+  border-style: solid;
+  border-color: #9E9EB5;
+  border-width: 4px;
+  border-radius: 5px;
+  box-shadow: 0 12px 10px -7px rgba(0, 0, 0, 0.4)
+}
+/*fin del CCS básico.*/
+
+/*CSS del login, para que coincida con la paleta de colores de la página principal,*/
+#login-section,
+#data-section {
+  width: 90%;
+  max-width: 600px;
+  margin: 2rem auto;
+  background-color: #BDBDCC;
+  border-color: #9E9EB5;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 5px;
+  padding: 2rem;
+  box-shadow: 0 12px 10px -7px rgba(0, 0, 0, 0.4)
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #8888B8;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #60609F;
+}
+
+.hidden {
+  display: none;
+}
+/*Fin del CSS del login*/
+
+/*CSS del navbar para el botón de cerrar sesión.*/
+.intranet-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 auto 1rem;
+  max-width: 800px;
+}
+
+#logout-btn {
+  background: #625ECF;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+#logout-btn:hover {
+  background: #3F3BC4;
+}
+/*Fin del CSS del navbar.*/
+
+/*CSS de las targetas de las empresas.*/
+#empreses-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#empreses-table th,
+#empreses-table td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+#empreses-table tr:hover {
+  background-color: #f0f8ff;
+}
+
+#login-error {
+  color: red;
+  text-align: center;
+}
+
+.empresa-card {
+  margin: 1rem auto;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px -3px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  max-width: 800px;
+}
+
+.empresa-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 18px -8px rgba(0, 0, 0, 0.35);
+}
+
+.empresa-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.empresa-thumb {
+  width: 150px;
+
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.25);
+}
+
+.empresa-detalls {
+  display: none;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #ddd;
+  color: #333;
+}
+
+.empresa-detalls.show {
+  display: block;
+}
+/*Fin del CSS de las targetas.*/
+
+
+/* CSS de las imágenes de las targetas de las empresas.*/
+.image-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.image-overlay.show {
+  display: flex;
+}
+
+.image-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+/*Fin :)*/
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<empreses>
+  <empresa id="e001">
+    <nom>Teixits Montsià</nom>
+    <municipi>Amposta</municipi>
+    <sector>Textil</sector>
+    <email>contacte@teixitsmontsia.cat</email>
+    <telefon>977123123</telefon>
+    <web>https://teixitsmontsia.cat</web>
+    <imatge>../assets/teixits-montsia.png</imatge>
+  </empresa>
+
+  <!-- NUEVA EMPRESA -->
+  <empresa id="e002">
+    <nom>Forns de la Ràpita</nom>
+    <municipi>La Ràpita</municipi>
+    <sector>Alimentació</sector>
+    <email>info@fornsrapita.cat</email>
+    <telefon>977222333</telefon>
+    <web>https://fornsrapita.cat</web>
+    <imatge>../assets/forns-rapita.png</imatge>
+  </empresa>
+</empreses>
+
