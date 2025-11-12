@@ -11,7 +11,7 @@ Aquesta última és la que permet llistar les empreses que estan en el XML i tam
 
 ## Intranet, navbar i footer
 
-## Documentación
+### Documentación
 - [Intranet](docs/intranet.md)
 - [Estilos CSS](docs/arquitectura-css.md)
 - [Datos XML](docs/api-datos-xml.md)
