@@ -100,15 +100,24 @@ body {
     align-items: center;
     /* Centra el contingut horitzontalment */
     justify-content: center;
-    /* Text en negreta */
-    font-weight: bold;
+    /* Text en negreta --> MOGUT A .lletra */
+    /* font-weight: bold; */
     /* El cursor es converteix en una mà */
     cursor: pointer; 
-    /* Mida de la lletra molt gran */
-    font-size: 120px ;
+    /* Mida de la lletra molt gran --> MOGUT A .lletra */
+    /* font-size: 120px ; */
 
 
-  
+    /* *** NOUS ESTILS AFEGITS *** */
+    /* Necessari perquè els 'span' interns amb 'position: absolute' es centrin */
+    position: relative; 
+    /* Afegim padding per evitar que les paraules llargues toquin la vora */
+    padding: 20px;
+    box-sizing: border-box; /* El padding no canvia la mida total de 300x300 */
+    text-align: center;
+    /* *** FI NOUS ESTILS *** */
+
+
     /* El que fa es canviar la forma a els cuadrat per una forma ovalada */
     border-radius: 45% 55% 60% 40% / 65% 50% 50% 35%;
     
@@ -119,6 +128,29 @@ body {
                 opacity 0.3s ease, /* Anima la transparència */
                 border-radius 0.8s ease-in-out; /* Anima la forma (triga 0.8s)! */
 }
+
+/* *** NOVES REGLES AFEGIDES PER LLETRA I PARAULA *** */
+
+/* Estil per la lletra gran (estat inicial) */
+.box .lletra {
+    font-size: 120px;
+    font-weight: bold;
+    position: absolute; /* S'apila sobre .paraula */
+    opacity: 1; /* Visible per defecte */
+    transition: opacity 0.3s ease-in-out; /* Animació de fade */
+}
+
+/* Estil per la paraula completa (estat amagat) */
+.box .paraula {
+    font-size: 32px; /* Mida de lletra minimalista */
+    font-weight: 500; /* Una mica més que 'normal' */
+    position: absolute; /* S'apila sota .lletra */
+    opacity: 0; /* Amagat per defecte */
+    transition: opacity 0.3s ease-in-out; /* Animació de fade */
+    white-space: nowrap; 
+}
+
+
 
 .box:hover {
     /* Mou la caixa 12px cap amunt i la fa una mica més gran (103%). */
@@ -131,7 +163,22 @@ body {
     border-radius: 60% 40% 45% 55% / 50% 65% 35% 50%;
 }
 
-/* S'aplica a la classe 'box' quan TAMBÉ té la classe 'clicked'. */
+/* *** NOVES REGLES DE HOVER PER L'OPACITAT *** */
+
+/* Quan passem el cursor sobre .box... */
+.box:hover .lletra {
+    opacity: 0; /* Amaga la lletra */
+}
+
+.box:hover .paraula {
+    opacity: 1; /* Mostra la paraula */
+    /* Permet que la paraula "Digitalització" es trenqui si no cap */
+    white-space: normal; 
+    font-style: inherit;
+}
+
+
+
 .box.clicked {
     /* Fa la caixa una mica més petita (95%) per simular que s'enfonsa. */
     transform: scale(0.95);
