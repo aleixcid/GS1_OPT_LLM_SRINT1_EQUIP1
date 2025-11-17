@@ -1,8 +1,3 @@
-2) docs/intranet.md
-Propósito: documentar la Intranet (arquitectura, flujos, validaciones, datos).
-
-Contenido sugerido:
-```markdown
 # Intranet Montsià30
 
 ## Objectiu
