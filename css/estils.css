@@ -1,4 +1,3 @@
-
 /* Defineix un estil per a qualsevol element que tingui la classe 'lletra-esquina' */
 .lletra-esquina {
     /* Treu l'element del flux normal de la pàgina */
@@ -150,6 +149,7 @@ body {
     white-space: nowrap; 
 }
 
+/* *** FI NOVES REGLES *** */
 
 
 .box:hover {
@@ -174,9 +174,9 @@ body {
     opacity: 1; /* Mostra la paraula */
     /* Permet que la paraula "Digitalització" es trenqui si no cap */
     white-space: normal; 
-    font-style: inherit;
 }
 
+/* *** FI NOVES REGLES HOVER *** */
 
 
 .box.clicked {
