@@ -1,0 +1,188 @@
+/* Defineix un estil per a qualsevol element que tingui la classe 'lletra-esquina' */
+.lletra-esquina {
+    /* Treu l'element del flux normal de la pàgina */
+    position: absolute;   
+    /* El col·loca a 20 píxels de la part superior */
+    top: 20px;            
+    /* El col·loca a 20 píxels de la part esquerra*/
+    left: 20px;   
+    /* Defineix el color de fons  */
+    background-color: lightslategrey; 
+    /* Afegeix espai intern: 10px amunt/avall i 15px als costats. */
+    padding: 10px 15px;        
+    /* Arrodoneix les cantonades lleugerament */
+    border-radius: 5px;        
+    /* Estableix una mida de lletra mitjana */
+    font-size: medium; 
+    /* Estableix el color del text en negre */
+    color: black;
+}
+/* El mateix pero cambiant el left per el right per a que estigui a la dreta*/
+.lletra-esquina-dreta {
+    position: absolute;   
+    top: 20px;            
+    right: 20px;   
+    background-color: lightslategrey; 
+    padding: 10px 15px;        
+    border-radius: 5px;        
+    font-size: medium; 
+    color: black;
+}
+
+body {
+    background-color: lightgray;
+    
+    /* Defineix dues imatges de fons (gradients) una sobre l'altra. */
+    background-image:
+        /* Primer gradient: un cercle a la part inferior esquerra */
+        radial-gradient(
+            /* Forma: cercle. Posició: 10% (esquerra) i 90% (amunt) */
+            circle at 10% 90%, 
+            /* Comença amb negre semi-transparent (0.5) al centre (0%) */
+            rgba(0, 0, 0, 0.5) 0%, 
+            /* Es difumina fins a ser 100% transparent al 40% del radi */
+            transparent 40% 
+        ),
+        /* Segon gradient: un cercle a la part inferior dreta */
+        radial-gradient(
+            /* Forma: cercle. Posició: 90% (esquerra) i 80% (amunt) */
+            circle at 90% 80%, 
+            /* Comença amb negre semi-transparent (0.45) al centre */
+            rgba(0, 0, 0, 0.45) 0%, 
+            /* Es difumina fins a transparent al 50% del radi */
+            transparent 50% 
+        );
+    
+    /* Assegura que els gradients no es repeteixin*/
+    background-repeat: no-repeat;
+    
+    /* Elimina el marge per defecte del navegador*/
+    margin: 0;
+    
+    /* Defineix la tipografia per defecte de la pàgina */
+    font-family: Arial, sans-serif;
+    
+    /* Utilitza 'Flexbox' per al disseny */
+    display: flex;
+    
+    /* Centra el contingut verticalment */
+    align-items: center;
+    
+    /* Centra el contingut horitzontalment */
+    justify-content: center;
+    
+    /* Fa que el 'body' ocupi, com a mínim, el 100% de l'alçada de la pantalla */
+    min-height: 100vh;
+    
+    /* Amaga qualsevol contingut que surti dels límits de la pantalla */
+    overflow: hidden; 
+}
+
+.container {
+    display: flex;  /* Activa 'Flexbox': els seus fills s'alinearan (per defecte, en fila)*/  
+    gap: 20px; /* Afegeix un espai de 20 píxels ENTRE cadascun dels seus fills */
+}
+
+
+
+.box {
+    /* Amplada i alçada fixes basicament per fer un cuadrat */
+    width: 300px;
+    height: 300px;
+    /* Color de fons */
+    background-color: lightslategray;
+    /* Color del text*/
+    color:black;
+    /* Utilitza Flexbox per alinear el contingut de dins */
+    display: flex;
+    /* Centra el contingut verticalment */
+    align-items: center;
+    /* Centra el contingut horitzontalment */
+    justify-content: center;
+    /* Text en negreta --> MOGUT A .lletra */
+    /* font-weight: bold; */
+    /* El cursor es converteix en una mà */
+    cursor: pointer; 
+    /* Mida de la lletra molt gran --> MOGUT A .lletra */
+    /* font-size: 120px ; */
+
+
+    /* *** NOUS ESTILS AFEGITS *** */
+    /* Necessari perquè els 'span' interns amb 'position: absolute' es centrin */
+    position: relative; 
+    /* Afegim padding per evitar que les paraules llargues toquin la vora */
+    padding: 20px;
+    box-sizing: border-box; /* El padding no canvia la mida total de 300x300 */
+    text-align: center;
+    /* *** FI NOUS ESTILS *** */
+
+
+    /* El que fa es canviar la forma a els cuadrat per una forma ovalada */
+    border-radius: 45% 55% 60% 40% / 65% 50% 50% 35%;
+    
+
+    /* Defineix transicions (animacions) per quan les propietats canviïn. */
+    transition: transform 0.5s ease-in-out, /* Anima moviments o escalats */
+                box-shadow 0.5s ease-in-out, /* Anima l'ombra */
+                opacity 0.3s ease, /* Anima la transparència */
+                border-radius 0.8s ease-in-out; /* Anima la forma (triga 0.8s)! */
+}
+
+/* *** NOVES REGLES AFEGIDES PER LLETRA I PARAULA *** */
+
+/* Estil per la lletra gran (estat inicial) */
+.box .lletra {
+    font-size: 120px;
+    font-weight: bold;
+    position: absolute; /* S'apila sobre .paraula */
+    opacity: 1; /* Visible per defecte */
+    transition: opacity 0.3s ease-in-out; /* Animació de fade */
+}
+
+/* Estil per la paraula completa (estat amagat) */
+.box .paraula {
+    font-size: 32px; /* Mida de lletra minimalista */
+    font-weight: 500; /* Una mica més que 'normal' */
+    position: absolute; /* S'apila sota .lletra */
+    opacity: 0; /* Amagat per defecte */
+    transition: opacity 0.3s ease-in-out; /* Animació de fade */
+    white-space: nowrap; 
+}
+
+/* *** FI NOVES REGLES *** */
+
+
+.box:hover {
+    /* Mou la caixa 12px cap amunt i la fa una mica més gran (103%). */
+    transform: translateY(-12px) scale(1.03); 
+
+    /* Afegeix una ombra més pronunciada per donar efecte de profunditat. */
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3); 
+
+    /* Canvia la forma orgànica del 'border-radius' a una altra. */
+    border-radius: 60% 40% 45% 55% / 50% 65% 35% 50%;
+}
+
+/* *** NOVES REGLES DE HOVER PER L'OPACITAT *** */
+
+/* Quan passem el cursor sobre .box... */
+.box:hover .lletra {
+    opacity: 0; /* Amaga la lletra */
+}
+
+.box:hover .paraula {
+    opacity: 1; /* Mostra la paraula */
+    /* Permet que la paraula "Digitalització" es trenqui si no cap */
+    white-space: normal; 
+}
+
+/* *** FI NOVES REGLES HOVER *** */
+
+
+.box.clicked {
+    /* Fa la caixa una mica més petita (95%) per simular que s'enfonsa. */
+    transform: scale(0.95);
+    
+    /* La fa una mica transparent (70% opaca). */
+    opacity: 0.7;         
+}

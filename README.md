@@ -16,3 +16,4 @@ Aquesta última és la que permet llistar les empreses que estan en el XML i tam
 - [Estilos CSS](docs/arquitectura-css.md)
 - [Datos XML](docs/api-datos-xml.md)
 - [JS de la Intranet](docs/js-intranet.md)
+

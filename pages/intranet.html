@@ -1,19 +1,15 @@
-<!-- html de YoHerman -->
 <!DOCTYPE html>
 <html lang="ca">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Intranet Montsià30</title>
-    <link rel="stylesheet" href="../css/intranet.css"/>
+    <link rel="stylesheet" href="../css/intranet.css" />
   </head>
-  
   <body>
-    <h1>Intranet Montsià30</h1>
-
     <!-- LOGIN -->
     <section id="login-section">
-      <form id="login-form">
+      <form id="login-form" class="login-form">
         <label for="username">Usuari (correu @montsia30.net):</label>
         <input
           type="email"
@@ -23,40 +19,75 @@
         />
 
         <label for="password">Contrasenya:</label>
-        <input
-          type="password"
-          id="password"
-          placeholder="••••••••"
-          required
-        />
+        <input type="password" id="password" placeholder="••••••••" required />
 
-        <button type="submit">Entrar</button>
+        <button type="submit" class="btn primary">Entrar</button>
         <p id="login-error"></p>
       </form>
     </section>
 
-    <!-- TAULA EMPRESES (oculta fins que fem login correcte) -->
+    <!-- CONTINGUT INTRANET -->
     <section id="data-section" class="hidden">
-      <h2>Llistat d’empreses</h2>
-      <table id="empreses-table">
-        <thead>
-          <tr>
-            <th>Nom</th>
-            <th>Municipi</th>
-            <th>Sector</th>
-            <th>Diagnosi</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+      <!-- CABECERA FIJA -->
+      <header class="topbar">
+        <div class="topbar-inner">
+          <h1 class="titulo">Intranet Montsià30</h1>
+          <button id="logout-btn" type="button" class="btn danger">
+            Tancar sessió
+          </button>
+        </div>
+      </header>
 
-      <a
-        id="link-autodiagnosi"
-        href="https://ccam.gencat.cat/ca/serveis/autodiagnosi/"
-        target="_blank"
-        >Accedir al formulari d'autodiagnosi</a
-      >
+
+      <!-- LAYOUT: FILTRES (izquierda) + TARGETES (derecha) -->
+      <div class="intranet-layout">
+        <aside class="sidebar">
+          <h3>Filtres</h3>
+
+          <label class="field">
+            <span>Cerca (nom o municipi)</span>
+            <input
+              id="search"
+              type="text"
+              placeholder="Escriu per cercar..."
+            />
+          </label>
+
+          <label class="field">
+            <span>Estat enquesta</span>
+            <select id="filter-llista">
+              <option value="totes">Totes</option>
+              <option value="digi-fin">Digitalització: finalitzada</option>
+              <option value="digi-pend">Digitalització: pendent</option>
+              <option value="soste-fin">Sostenibilitat: finalitzada</option>
+              <option value="soste-pend">Sostenibilitat: pendent</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Ordenar per</span>
+            <select id="ordre">
+              <option value="nom">Nom</option>
+              <option value="municipi">Municipi</option>
+              <option value="sector">Sector</option>
+            </select>
+          </label>
+
+          <button id="clear-filters" type="button" class="btn secondary">
+            Netejar filtres
+          </button>
+        </aside>
+
+        <main class="cards-area">
+          <div id="empreses-container"></div>
+        </main>
+      </div>
     </section>
+
+    <!-- OVERLAY ÚNICO PARA ZOOM DE IMAGEN -->
+    <div id="img-overlay" class="image-overlay" aria-hidden="true">
+      <img alt="zoom" />
+    </div>
 
     <script src="../js/intranet.js"></script>
   </body>
