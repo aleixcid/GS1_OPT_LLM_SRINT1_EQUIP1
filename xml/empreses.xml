@@ -3,14 +3,24 @@
   <empresa id="e001">
     <nom>Teixits Montsià</nom>
     <municipi>Amposta</municipi>
-    <sector>Textil</sector>
+    <sector>Tèxtil</sector>
     <email>contacte@teixitsmontsia.cat</email>
     <telefon>977123123</telefon>
     <web>https://teixitsmontsia.cat</web>
     <imatge>../assets/teixits-montsia.png</imatge>
+
+    <enquestes>
+      <digitalitzacio estat="finalitzada" data="2025-11-10">
+        <!-- resum o resultats mínims -->
+        <resultat>65</resultat> <!-- percentatge 0-100 -->
+        <respostes ref="xml/respostes/e001-digi.xml" />
+      </digitalitzacio>
+      <sostenibilitat estat="pendent">
+        <respostes ref="" />
+      </sostenibilitat>
+    </enquestes>
   </empresa>
 
-  <!-- NUEVA EMPRESA -->
   <empresa id="e002">
     <nom>Forns de la Ràpita</nom>
     <municipi>La Ràpita</municipi>
@@ -19,6 +29,15 @@
     <telefon>977222333</telefon>
     <web>https://fornsrapita.cat</web>
     <imatge>../assets/forns-rapita.png</imatge>
+
+    <enquestes>
+      <digitalitzacio estat="pendent">
+        <respostes ref="" />
+      </digitalitzacio>
+      <sostenibilitat estat="finalitzada" data="2025-11-09">
+        <resultat>72</resultat>
+        <respostes ref="xml/respostes/e002-soste.xml" />
+      </sostenibilitat>
+    </enquestes>
   </empresa>
 </empreses>
-
