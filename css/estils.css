@@ -1,0 +1,399 @@
+/* ======================================================= */
+/* VARIABLES DE COLOR (La teva paleta de grisos) */
+/* ======================================================= */
+:root {
+  --fons-web: #e5e5e5;
+  --fons-slide: #ffffff;
+  --text-negre: #111111;
+  --text-gris: #333333;
+  --text-gris-suau: #666666;
+  --color-accent-groc: #bfbfbf;
+  --color-barra-vertical: #444444;
+  --color-header-fons: #cccccc;
+  --color-fons-col-dreta: #f2f2f2;
+  --color-fons-col-mig: #ededed;
+  --color-linia-titol: #555555;
+  --color-caixa-prennota: #f9f9f9;
+}
+
+
+
+
+/* ======================================================= */
+/* ESTIL BASE DEL CARRUSEL (Shell) */
+/* ======================================================= */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--fons-web);
+  color: var(--text-gris);
+  overflow: hidden;
+}
+
+
+#carrusel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+
+#carrusel {
+  width: 80%;
+  max-width: 1400px;
+  aspect-ratio: 16 / 9;
+  background-color: var(--fons-slide);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* ======================================================= */
+/* ESTRUCTURA COMÚ DELS SLIDES */
+/* ======================================================= */
+.slide {
+  display: none; /* Amagat per JS */
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+
+.slide.active {
+  display: flex; /* Mostra l'actiu */
+  opacity: 1;
+  z-index: 1;
+}
+
+
+/* Barres laterals decoratives */
+.barra-lateral-groga {
+  width: 18px;
+  height: 100%;
+  background-color: var(--color-accent-groc);
+  flex-shrink: 0;
+}
+.barra-lateral-text {
+  width: 50px;
+  height: 100%;
+  background-color: var(--color-barra-vertical);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+
+
+/* Contingut principal (el que no són les barres) */
+.slide-main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+
+/* ========= CANVIS PER CONDENSAR contingut ========= */
+header.slide-header {
+  padding: 0.75rem 2rem; /* Reduït (abans 1rem 2.5rem) */
+  font-size: 1rem; /* Reduït (abans 1.1rem) */
+  font-weight: bold;
+  color: var(--color-linia-titol);
+  border-bottom: 2px solid #eee;
+  flex-shrink: 0;
+}
+
+
+.slide-body {
+  flex: 1;
+  padding: 1rem 2rem; /* Reduït (abans 1.5rem 2.5rem) */
+  /* ELIMINAT 'overflow-y: auto' */
+  display: flex;
+  gap: 1.5rem; /* Reduït (abans 2rem) */
+}
+
+
+footer.slide-footer {
+  text-align: right;
+  padding: 0.4rem 2rem; /* Reduït (abans 0.5rem 2.5rem) */
+  font-size: 0.9rem; /* Reduït (abans 1rem) */
+  color: var(--text-gris-suau);
+  border-top: 1px solid #eee;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
+/* ========= FI DELS CANVIS PER CONDENSAR ========= */
+
+
+/* ======================================================= */
+/* ESTILS DELS BOTONS DE NAVEGACIÓ */
+/* ======================================================= */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s, opacity 0.3s;
+}
+.nav-btn:hover { background-color: rgba(0, 0, 0, 0.7); }
+#prevBtn { left: 2%; }
+#nextBtn { right: 2%; }
+
+
+/* ======================================================= */
+/* ESTILS ESPECÍFICS PER CADA SLIDE */
+/* ======================================================= */
+
+
+/* --- Estils comuns (CONDENSATS) --- */
+.titol-amb-linia {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.75rem; /* Reduït (abans 1rem) */
+}
+.titol-amb-linia::before {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 24px; /* Reduït (abans 30px) */
+  background-color: var(--color-linia-titol);
+  flex-shrink: 0;
+}
+.titol-amb-linia h2 {
+  font-size: 1.5rem; /* Reduït (abans 1.7rem) */
+  color: var(--text-negre);
+  margin: 0;
+}
+.titol-amb-linia h3 {
+  font-size: 1.15rem; /* Reduït (abans 1.3rem) */
+  color: var(--text-negre);
+  margin: 0;
+}
+p {
+  font-size: 0.85rem; /* Reduït (abans 0.95rem) */
+  line-height: 1.45; /* Reduït (abans 1.6) */
+  color: var(--text-gris-suau);
+  margin: 0.5rem 0; /* Afegit per controlar espai */
+}
+ul, ol {
+  font-size: 0.85rem; /* Reduït (abans 0.95rem) */
+  line-height: 1.45; /* Reduït (abans 1.6) */
+  color: var(--text-gris-suau);
+  margin: 0.5rem 0;
+}
+
+
+/* --- Slide 1 --- */
+.slide-body-1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.slide-body-1 .col-esquerra { display: flex; flex-direction: column; }
+.slide-body-1 .pregunta { font-style: italic; }
+.slide-body-1 .imatge-contingut { width: 100%; border-radius: 5px; margin-top: 1rem; }
+.slide-body-1 .logos-footer { width: 100%; margin-top: auto; padding-top: 1rem; }
+.slide-body-1 .caixa-esforc h4 {
+  background-color: var(--color-header-fons);
+  color: var(--text-negre);
+  padding: 8px 12px; /* Reduït */
+  border-radius: 5px;
+  font-size: 1rem; /* Reduït */
+  margin-top: 0;
+}
+.slide-body-1 .grafic-contingut { width: 100%; }
+.slide-body-1 .caixa-caracteristiques {
+  background-color: var(--color-fons-col-dreta);
+  padding: 1rem; /* Reduït */
+  border-radius: 8px;
+  margin-top: 1rem; /* Reduït */
+}
+.slide-body-1 .caixa-caracteristiques h4 { margin-top: 0; font-size: 1rem; } /* Reduït */
+.slide-body-1 .caixa-caracteristiques ul { padding-left: 20px; }
+.slide-body-1 .caixa-caracteristiques li { margin-bottom: 8px; } /* Reduït */
+
+
+
+
+/* --- Slide 2 --- */
+.slide-body-2 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+.slide-body-2 .col-esquerra {
+  display: flex;
+  flex-direction: column;
+}
+.slide-body-2 .col-dreta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem; /* Reduït */
+}
+.slide-body-2 .imatge-lateral {
+  width: 70%;
+  max-width: 250px;
+}
+.slide-body-2 .text-sota-imatge {
+  font-size: 0.8rem;
+  font-style: italic;
+  text-align: center;
+  padding: 0 1rem;
+  border-left: 2px solid var(--color-accent-groc);
+  margin-top: 1rem;
+}
+.grid-3-columnes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem; /* Reduït */
+  margin-top: 1rem;
+}
+.info-box {
+  background-color: var(--color-fons-col-mig);
+  padding: 0.75rem; /* Reduït */
+  border-radius: 8px;
+}
+.info-box h4 { margin-top: 0; font-size: 0.9rem; } /* Reduït */
+.titol-idees {
+  width: 100%;
+  text-align: center;
+  font-size: 1.1rem; /* Reduït */
+  color: var(--color-linia-titol);
+  background-color: var(--color-fons-col-mig);
+  padding: 0.75rem; /* Reduït */
+  margin: 1rem 0; /* Reduït */
+  box-sizing: border-box;
+}
+.caixes-idees .idea-box {
+  border: 2px dashed var(--color-header-fons);
+  padding: 0.75rem; /* Reduït */
+  border-radius: 5px;
+}
+.caixes-idees h4 { margin-top: 0; color: var(--text-negre); font-size: 0.9rem;}
+
+
+
+
+/* --- Slide 3 --- */
+.slide-body-3 {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+}
+.slide-body-3 .col-esquerra ul { list-style: none; padding-left: 0; margin: 0; }
+.slide-body-3 .col-esquerra li { padding-left: 1.5rem; margin-bottom: 0.75rem; position: relative; } /* Reduït */
+.slide-body-3 .col-esquerra li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-linia-titol);
+  font-weight: bold;
+}
+.caixa-sabies {
+  background-color: var(--color-fons-col-mig);
+  padding: 1rem; /* Reduït */
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+.caixa-prennota {
+  background-color: var(--color-caixa-prennota);
+  border: 1px solid var(--color-accent-groc);
+  padding: 1rem; /* Reduït */
+  border-radius: 8px;
+  margin-top: 1rem; /* Reduït */
+}
+.caixa-sabies h4, .caixa-prennota h4 { margin-top: 0; font-size: 1.05rem; color: var(--text-negre); } /* Reduït */
+.video-placeholder { width: 100%; border-radius: 5px; border: 1px solid #ddd; }
+.slide-body-3 .col-dreta ul { padding-left: 20px; }
+.slide-body-3 .nota-video { font-size: 0.8rem; font-style: italic; }
+
+
+
+
+/* --- Slide 4 --- */
+.slide-body-4 {
+  display: grid;
+  grid-template-columns: 1.2fr 1.2fr 1fr; /* Proporcions ajustades */
+  gap: 1.5rem; /* Reduït */
+}
+.slide-body-4 .col-esquerra .contingut-exemple {
+  overflow: hidden;
+}
+.icona-destacada {
+  width: 90px; /* Reduït */
+  height: auto;
+  float: left;
+  margin: 0 1rem 0.5rem 0;
+}
+.llista-numerada {
+  list-style: none;
+  padding-left: 0;
+  counter-reset: list-item;
+  margin: 0.5rem 0;
+}
+.llista-numerada li {
+  position: relative;
+  padding-left: 2.5rem; /* Reduït */
+  margin-bottom: 0.75rem; /* Reduït */
+  font-size: 0.8rem; /* Reduït */
+  line-height: 1.4; /* Reduït */
+}
+.llista-numerada li::before {
+  content: counter(list-item);
+  counter-increment: list-item;
+  position: absolute;
+  left: 0;
+  top: -0.2rem;
+  font-size: 2rem; /* Reduït */
+  font-weight: bold;
+  color: var(--color-linia-titol);
+  opacity: 0.3;
+}
+.llista-numerada li strong {
+  color: var(--text-negre);
+}
+.benefici-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* Reduït */
+  margin-bottom: 1rem; /* Reduït */
+}
+.benefici-item img {
+  width: 45px; /* Reduït */
+  height: auto;
+  flex-shrink: 0;
+}
+.benefici-item p { margin: 0; font-size: 0.8rem; } /* Reduït */
+.logos-footer-slide4 {
+  height: 25px; /* Reduït */
+  width: auto;
+}
+
+
+
