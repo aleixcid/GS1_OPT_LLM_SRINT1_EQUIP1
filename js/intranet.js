@@ -6,6 +6,8 @@ const errorMsg = document.getElementById("login-error");
 const loginSection = document.getElementById("login-section");
 const dataSection = document.getElementById("data-section");
 const logoutBtn = document.getElementById("logout-btn");
+const navBreadcrumbs = document.getElementById("topbar-breadcrumbs");
+const topbarMenu = document.querySelector(".topbar-menu");
 
 // Filtros
 const qInput = document.getElementById("search");
@@ -23,10 +25,38 @@ document.addEventListener("DOMContentLoaded", () => {
   if (isAuth) {
     loginSection?.classList.add("hidden");
     dataSection?.classList.remove("hidden");
+    navBreadcrumbs?.classList.remove("hidden");
+    topbarMenu?.classList.remove("hidden");
     loadEmpreses();
   } else {
     loginSection?.classList.remove("hidden");
     dataSection?.classList.add("hidden");
+    navBreadcrumbs?.classList.add("hidden");
+    topbarMenu?.classList.add("hidden");
+  }
+
+  // Funcionalidad del menú desplegable en topbar
+  const topbarMenuToggle = document.querySelector(".topbar-menu .menu-toggle");
+  if (topbarMenuToggle) {
+    topbarMenuToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const menu = topbarMenuToggle.closest(".topbar-menu");
+      if (menu) {
+        const isOpen = menu.classList.toggle("open");
+        topbarMenuToggle.setAttribute("aria-expanded", isOpen);
+      }
+    });
+
+    // Cerrar menú al hacer clic fuera
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".topbar-menu")) {
+        const menu = document.querySelector(".topbar-menu");
+        if (menu) {
+          menu.classList.remove("open");
+          topbarMenuToggle.setAttribute("aria-expanded", "false");
+        }
+      }
+    });
   }
 });
 
@@ -55,14 +85,19 @@ form.addEventListener("submit", (e) => {
 
   loginSection.classList.add("hidden");
   dataSection.classList.remove("hidden");
+  navBreadcrumbs?.classList.remove("hidden");
+  topbarMenu?.classList.remove("hidden");
   loadEmpreses();
 });
+
 
 // Logout
 logoutBtn?.addEventListener("click", () => {
   sessionStorage.removeItem("intranet-auth");
   dataSection.classList.add("hidden");
   loginSection.classList.remove("hidden");
+  navBreadcrumbs?.classList.add("hidden");
+  topbarMenu?.classList.add("hidden");
   const c = document.getElementById("empreses-container");
   if (c) c.innerHTML = "";
   form.reset();
