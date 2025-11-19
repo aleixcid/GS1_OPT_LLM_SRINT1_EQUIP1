@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intranet Montsià30</title>
+  <link rel="stylesheet" href="../css/navbar.css" />
+  <link rel="stylesheet" href="../css/intranet.css" />
+
+</head>
+
+<body>
+  <!-- LOGIN -->
+  <section id="login-section">
+    <form id="login-form" class="login-form">
+      <label for="username">Usuari (correu @montsia30.net):</label>
+      <input type="email" id="username" placeholder="usuari@montsia30.net" required />
+
+      <label for="password">Contrasenya:</label>
+      <input type="password" id="password" placeholder="- - - - -" required />
+
+      <button type="submit" class="btn primary">Entrar</button>
+      <p id="login-error"></p>
+    </form>
+  </section>
+
+  <!-- CONTINGUT INTRANET -->
+  <section id="data-section" class="hidden">
+    <!-- CABECERA FIJA -->
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="topbar-nav-section">
+          <div class="topbar-menu" aria-label="Seccions">
+            <button class="menu-toggle" aria-haspopup="true" aria-expanded="false">
+              Seccions <span aria-hidden="true">▾</span>
+            </button>
+            <ul class="menu-dropdown" id="main-menu">
+              <li><a href="../pages/digitalitzacio.html">Digitalització</a></li>
+              <li><a href="../pages/sostenibilitat.html">Sostenibilitat</a></li>
+              <li><a href="../pages/intranet.html">Intranet</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="topbar-title-section">
+          <h1 class="titulo">Intranet Montsià30</h1>
+          <ol class="breadcrumbs" id="topbar-breadcrumbs">
+            <li><a href="../index.html">Inici</a></li>
+            <li aria-current="page">Intranet</li>
+          </ol>
+        </div>
+        <button id="logout-btn" type="button" class="btn danger">
+          Tancar sessió
+        </button>
+      </div>
+    </header>
+
+    <!-- LAYOUT: FILTRES (izquierda) + TARGETES (derecha) -->
+    <div class="intranet-layout">
+      <aside class="sidebar">
+        <h3>Filtres</h3>
+
+        <label class="field">
+          <span>Cerca (nom o municipi)</span>
+          <input id="search" type="text" placeholder="Escriu per cercar..." />
+        </label>
+
+        <label class="field">
+          <span>Estat enquesta</span>
+          <select id="filter-llista">
+            <option value="totes">Totes</option>
+            <option value="digi-fin">Digitalització: finalitzada</option>
+            <option value="digi-pend">Digitalització: pendent</option>
+            <option value="soste-fin">Sostenibilitat: finalitzada</option>
+            <option value="soste-pend">Sostenibilitat: pendent</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Ordenar per</span>
+          <select id="ordre">
+            <option value="nom">Nom</option>
+            <option value="municipi">Municipi</option>
+            <option value="sector">Sector</option>
+          </select>
+        </label>
+
+        <button id="clear-filters" type="button" class="btn secondary">
+          Netejar filtres
+        </button>
+      </aside>
+
+      <main class="cards-area">
+        <div id="empreses-container"></div>
+      </main>
+    </div>
+  </section>
+
+  <!-- OVERLAY ÚNICO PARA ZOOM DE IMAGEN -->
+  <div id="img-overlay" class="image-overlay" aria-hidden="true">
+    <img alt="zoom" />
+  </div>
+
+  <footer class="global-footer">
+    <div class="lletra-esquina">
+      GERMAN, ALEIX I RICEARD
+    </div>
+    <p class="footer-copy">
+      © <span id="footer-year"></span> Montsià30 · Tots els drets reservats
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById("footer-year").textContent = new Date().getFullYear();
+  </script>
+
+  <script src="../js/navbar.js"></script>
+  <script src="../js/intranet.js"></script>
+</body>
+
+</html>

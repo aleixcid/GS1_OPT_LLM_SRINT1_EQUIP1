@@ -1,1 +1,62 @@
-home, a place where I can go...
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Montsià30</title>
+  <link rel="stylesheet" href="../css/estils.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+
+<body>
+  <nav class="global-nav" aria-label="Ruta de navegació">
+    <div class="global-nav__inner">
+
+      <div class="global-nav__menu" aria-label="Seccions">
+        <button class="menu-toggle" aria-haspopup="true" aria-expanded="false">
+          Seccions <span aria-hidden="true">></span>
+        </button>
+        <ul class="menu-dropdown" id="main-menu">
+          <li><a href="/pages/digitalitzacio.html">Digitalització</a></li>
+          <li><a href="/pages/sostenibilitat.html">Sostenibilitat</a></li>
+          <li><a href="/pages/intranet.html">Intranet</a></li>
+        </ul>
+      </div>
+
+      <a class="letra-nav" href="https://github.com/aleixcid/GS1_OPT_LLM_SRINT1_EQUIP1">GS1_OPT_LLM_SRINT1_EQUIP1</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="box" data-link="pagina-d.html">
+      <span class="lletra">D</span>
+      <span class="paraula">DIGITALITZACIÓ</span>
+    </div>
+    <div class="box" data-link="pagina-s.html">
+      <span class="lletra">S</span>
+      <span class="paraula">SOSTENIBILITAT</span>
+    </div>
+    <div class="box" data-link="../pages/intranet.html">
+      <span class="lletra">I</span>
+      <span class="paraula">INTRANET</span>
+    </div>
+  </div>
+
+  <footer class="global-footer">
+    <div class="lletra-esquina">
+      GERMAN, ALEIX I RICEARD
+    </div>
+    <p class="footer-copy">
+      © <span id="footer-year"></span> Montsià30 · Tots els drets reservats
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById("footer-year").textContent = new Date().getFullYear();
+  </script>
+
+  <script src="../js/animacio.js"></script>
+  <script src="../js/navbar.js"></script>
+</body>
+
+</html>
