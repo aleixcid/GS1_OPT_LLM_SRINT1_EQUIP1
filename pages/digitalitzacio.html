@@ -7,6 +7,7 @@
     <title>Carrusel Missatgeria Instantània</title>
     <link rel="stylesheet" href="../css/estils.css" type="text/css">
     <link rel="stylesheet" href="../css/intranet.css" type="text/css">
+    <link rel="stylesheet" href="../css/navbar.css" type="text/css">
     <script src="../js/navbar.js" defer></script>
     <script src="../js/carrusel.js" defer></script>
 </head>
@@ -328,6 +329,19 @@
         </div>
 
     </div>
+
+    <footer class="global-footer">
+        <div class="lletra-esquina">
+            GERMAN, ALEIX I RICEARD
+        </div>
+        <p class="footer-copy">
+            © <span id="footer-year"></span> Montsià30 · Tots els drets reservats
+        </p>
+    </footer>
+
+    <script>
+        document.getElementById("footer-year").textContent = new Date().getFullYear();
+    </script>
 </body>
 
 </html>
