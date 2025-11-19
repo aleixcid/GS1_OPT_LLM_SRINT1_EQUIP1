@@ -1,8 +1,6 @@
 :root {
   --sidebar-width: 300px;
-  /* ancho panel filtros */
   --sidebar-gap: 16px;
-  /* separación entre sidebar y contenido */
   --content-max: 1200px;
   --bg: #d7d7e0;
   --panel: #bdbdcc;
@@ -13,10 +11,8 @@
   --danger: #b91c1c;
   --danger-2: #dc2626;
   --nav-height: 70px;
-  /* altura del navbar global */
   --topbar-height: 120px;
-  /* altura aproximada del topbar (padding + contenido) */
-  --footer-height: 90px;
+  --footer-height: 80px;
 
 }
 
