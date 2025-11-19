@@ -18,6 +18,30 @@ const clearBtn = document.getElementById("clear-filters");
 // Cache en memoria
 let EMPRESES = [];
 
+// Funcionalidad del menú desplegable en topbar (se ejecuta siempre)
+function initTopbarMenu() {
+  // Usar delegación de eventos para que funcione incluso si el elemento está oculto inicialmente
+  document.addEventListener("click", (e) => {
+    const topbarMenuToggle = e.target.closest(".topbar-menu .menu-toggle");
+    if (topbarMenuToggle) {
+      e.stopPropagation();
+      const menu = topbarMenuToggle.closest(".topbar-menu");
+      if (menu) {
+        const isOpen = menu.classList.toggle("open");
+        topbarMenuToggle.setAttribute("aria-expanded", isOpen);
+      }
+    } else if (!e.target.closest(".topbar-menu")) {
+      // Cerrar menú al hacer clic fuera
+      const menu = document.querySelector(".topbar-menu");
+      const toggle = document.querySelector(".topbar-menu .menu-toggle");
+      if (menu && toggle) {
+        menu.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+      }
+    }
+  });
+}
+
 // Mostrar login o contenido según sesión
 document.addEventListener("DOMContentLoaded", () => {
   const isAuth = sessionStorage.getItem("intranet-auth") === "1";
@@ -35,29 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
     topbarMenu?.classList.add("hidden");
   }
 
-  // Funcionalidad del menú desplegable en topbar
-  const topbarMenuToggle = document.querySelector(".topbar-menu .menu-toggle");
-  if (topbarMenuToggle) {
-    topbarMenuToggle.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const menu = topbarMenuToggle.closest(".topbar-menu");
-      if (menu) {
-        const isOpen = menu.classList.toggle("open");
-        topbarMenuToggle.setAttribute("aria-expanded", isOpen);
-      }
-    });
-
-    // Cerrar menú al hacer clic fuera
-    document.addEventListener("click", (e) => {
-      if (!e.target.closest(".topbar-menu")) {
-        const menu = document.querySelector(".topbar-menu");
-        if (menu) {
-          menu.classList.remove("open");
-          topbarMenuToggle.setAttribute("aria-expanded", "false");
-        }
-      }
-    });
-  }
+  // Inicializar el menú desplegable
+  initTopbarMenu();
 });
 
 // Login

@@ -1,17 +1,43 @@
 <!DOCTYPE html>
 <html lang="ca">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrusel Missatgeria Instantània</title>
-    <link rel="stylesheet" href="../css/estils.css">
+    <link rel="stylesheet" href="../css/estils.css" type="text/css">
+    <link rel="stylesheet" href="../css/intranet.css" type="text/css">
+    <script src="../js/navbar.js" defer></script>
     <script src="../js/carrusel.js" defer></script>
 </head>
-<body>
 
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <div class="topbar-nav-section">
+                <div class="topbar-menu" aria-label="Seccions">
+                    <button class="menu-toggle" aria-haspopup="true" aria-expanded="false">
+                        Seccions <span aria-hidden="true">▾</span>
+                    </button>
+                    <ul class="menu-dropdown" id="main-menu">
+                        <li><a href="../pages/digitalitzacio.html">Digitalització</a></li>
+                        <li><a href="../pages/sostenibilitat.html">Sostenibilitat</a></li>
+                        <li><a href="../pages/intranet.html">Intranet</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="topbar-title-section">
+                <h1 class="titulo">Digitalització</h1>
+                <ol class="breadcrumbs">
+                    <li><a href="../index.html">Inici</a></li>
+                    <li aria-current="page">Digitalització</li>
+                </ol>
+            </div>
+        </div>
+    </header>
 
     <div class="carousel-container">
-       
+
         <!-- DIAPOSITIVA 1 -->
         <div class="slide active" id="slide-0">
             <h1>La missatgeria instantània</h1>
@@ -19,32 +45,42 @@
                 <div class="slide-content-grid slide-1-grid">
                     <div class="slide-1-left">
                         <div>
-                            <p>Les aplicacions de missatgeria instantània com Whatsapp o Telegram permeten intercanviar informació a temps real de diferents tipus d'arxius, ja siguin textos, imatges, vídeos, missatges de veu o fins i tot fer videoconferències.</p>
-                            <p><strong class="bold-text">Sabies que són eines apropiades per fidelitzar la clientela?</strong></p>
+                            <p>Les aplicacions de missatgeria instantània com Whatsapp o Telegram permeten intercanviar
+                                informació a temps real de diferents tipus d'arxius, ja siguin textos, imatges, vídeos,
+                                missatges de veu o fins i tot fer videoconferències.</p>
+                            <p><strong class="bold-text">Sabies que són eines apropiades per fidelitzar la
+                                    clientela?</strong></p>
                         </div>
                         <!-- IMATGE gent-mobils.jpg: Ara utilitza tot l'espai vertical restant -->
                         <div class="gent-mobils.jpg">
-                            <img src="../img/gent-mobils.jpg" alt="gent-mobils.jpg">
+                            <img src="../assets/img/gent-mobils.jpg" alt="gent-mobils.jpg">
                         </div>
                     </div>
                     <div class="slide-1-right">
                         <div class="gray-header">Quin esforç t'implica?</div>
                         <!-- IMATGE grafic-esforc.jpg: Més a prop de la capçalera -->
                         <div class="image-box contain" style="height: 150px;">
-                            <img src="../img/grafic-esforc.jpg" alt="Gràfic que mostra la baixa inversió i el temps mitjà-baix requerit per la missatgeria instantània">
+                            <img src="../assets/img/grafic-esforc.jpg"
+                                alt="Gràfic que mostra la baixa inversió i el temps mitjà-baix requerit per la missatgeria instantània">
                         </div>
-                       
+
                         <div class="characteristics-section">
                             <h2>Principals característiques</h2>
                             <ul class="characteristics-list">
                                 <li>
-                                    <p>La <strong class="bold-text">inversió és baixa.</strong> Les aplicacions de missatgeria instantània tenen un cost econòmic molt baix; WhatsApp i Telegram són gratuïtes.</p>
+                                    <p>La <strong class="bold-text">inversió és baixa.</strong> Les aplicacions de
+                                        missatgeria instantània tenen un cost econòmic molt baix; WhatsApp i Telegram
+                                        són gratuïtes.</p>
                                 </li>
                                 <li>
-                                    <p>El <strong class="bold-text">temps de dedicació és mitjà-baix.</strong> La missatgeria instantània no presenta massa dificultats tècniques, la qual cosa facilita molt el seu ús.</p>
+                                    <p>El <strong class="bold-text">temps de dedicació és mitjà-baix.</strong> La
+                                        missatgeria instantània no presenta massa dificultats tècniques, la qual cosa
+                                        facilita molt el seu ús.</p>
                                 </li>
                                 <li>
-                                    <p>La <strong class="bold-text">dificultat tècnica és baixa.</strong> La major part d'opcions que ofereix no presenten massa dificultat. Un cop plantejada una estratègia, el seu desenvolupament és senzill.</p>
+                                    <p>La <strong class="bold-text">dificultat tècnica és baixa.</strong> La major part
+                                        d'opcions que ofereix no presenten massa dificultat. Un cop plantejada una
+                                        estratègia, el seu desenvolupament és senzill.</p>
                                 </li>
                             </ul>
                         </div>
@@ -53,64 +89,77 @@
             </div>
         </div>
 
-
         <!-- DIAPOSITIVA 2 -->
         <div class="slide" id="slide-1">
             <h1>Com et pot ajudar a vendre la missatgeria instantània?</h1>
             <div class="slide-2-content">
-                <p style="margin-bottom: 15px;">La missatgeria instantània ens pot ajudar a mantenir una relació més estreta i constant amb la nostra clientela, ja que:</p>
-               
+                <p style="margin-bottom: 15px;">La missatgeria instantània ens pot ajudar a mantenir una relació més
+                    estreta i constant amb la nostra clientela, ja que:</p>
+
                 <div class="benefits-row">
                     <div>
-                       
+
                         <strong class="bold-text">T'ajuda a impulsar accions comercials més específiques</strong>
-                        <small>Ens ofereix la possibilitat d'enviar comunicacions i fer accions comercials molt més directes.</small>
+                        <small>Ens ofereix la possibilitat d'enviar comunicacions i fer accions comercials molt més
+                            directes.</small>
                     </div>
                     <div>
-                       
+
                         <strong class="bold-text">Et fa més present en la resolució de dubtes</strong>
-                        <small>La facilitat d'ús d'aquesta eina permet que la nostra clientela disposi d'un canal d'atenció molt personalitzat i en temps real.</small>
+                        <small>La facilitat d'ús d'aquesta eina permet que la nostra clientela disposi d'un canal
+                            d'atenció molt personalitzat i en temps real.</small>
                     </div>
                     <div>
-                       
+
                         <strong class="bold-text">Promou la confiança i contribueix a la fidelització.</strong>
-                        <small>Al ser una eina utilitzada per les persones ens permet promoure una major confiança i un tancament de comandes més eficient.</small>
+                        <small>Al ser una eina utilitzada per les persones ens permet promoure una major confiança i un
+                            tancament de comandes més eficient.</small>
                     </div>
                 </div>
 
-
                 <div class="ideas-container-wrapper">
                     <div class="ideas-header">
-                       
-                      </span>
+
+                        </span>
                         Et donem algunes idees...
                     </div>
-                   
+
                     <div class="ideas-container">
                         <div class="idea-col">
                             <span class="idea-title">Menjar preparat:</span>
-                            <p>imagina que a través del WhatsApp pots informar la teva clientela dels plats o menús del dia de manera que puguin fer la seva comanda i indicar l'hora en què la passaran a recollir. De ben segur que <strong class="text-accent">agrairan conèixer de primera mà i en exclusiva les teves propostes del dia.</strong></p>
+                            <p>imagina que a través del WhatsApp pots informar la teva clientela dels plats o menús del
+                                dia de manera que puguin fer la seva comanda i indicar l'hora en què la passaran a
+                                recollir. De ben segur que <strong class="text-accent">agrairan conèixer de primera mà i
+                                    en exclusiva les teves propostes del dia.</strong></p>
                         </div>
                         <div class="idea-col">
                             <span class="idea-title">Centre d'estètica:</span>
-                            <p>pots utilitzar la missatgeria instantània per donar a conèixer els serveis, productes i marques amb les quals treballes. Per mitjà del catàleg poden tenir informació actualitzada, amb <strong class="text-accent">fotografies i preus. Aquest canal també es pot emprar per a la reserva o recordatori de cites.</strong></p>
+                            <p>pots utilitzar la missatgeria instantània per donar a conèixer els serveis, productes i
+                                marques amb les quals treballes. Per mitjà del catàleg poden tenir informació
+                                actualitzada, amb <strong class="text-accent">fotografies i preus. Aquest canal també es
+                                    pot emprar per a la reserva o recordatori de cites.</strong></p>
                         </div>
                         <div class="idea-col">
                             <span class="idea-title">Pastisseria:</span>
-                            <p>com a servei personal, pots fer un llistat de contactes de la teva clientela i oferir-li, si així ho desitja, la possibilitat de fer les reserves a través de WhatsApp. Si la teva <strong class="text-accent">clientela realitza la seva comanda amb antelació, tindràs més temps per organitzar-te en funció de la demanda.</strong></p>
+                            <p>com a servei personal, pots fer un llistat de contactes de la teva clientela i oferir-li,
+                                si així ho desitja, la possibilitat de fer les reserves a través de WhatsApp. Si la teva
+                                <strong class="text-accent">clientela realitza la seva comanda amb antelació, tindràs
+                                    més temps per organitzar-te en funció de la demanda.</strong>
+                            </p>
                         </div>
                         <!-- IMATGE mobil-whatsapp.jpg -->
                         <div style="display: flex; flex-direction: column; gap: 10px;">
                             <div class="image-box">
-                                <img src="../img/mobil-whatsapp.jpg" alt="Telèfon mòbil mostrant una aplicació de missatgeria instantània">
+                                <img src="../assets/img/mobil-whatsapp.jpg"
+                                    alt="Telèfon mòbil mostrant una aplicació de missatgeria instantània">
                             </div>
-                            <small style="color: #888; flex-shrink: 0;">>> Per saber-ne més, tens un tutorial sobre WhatsApp Business a la pàgina següent.</small>
+                            <small style="color: #888; flex-shrink: 0;">>> Per saber-ne més, tens un tutorial sobre
+                                WhatsApp Business a la pàgina següent.</small>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
 
         <!-- DIAPOSITIVA 3 -->
         <div class="slide" id="slide-2">
@@ -121,46 +170,65 @@
                         <div class="info-box">
                             <h3>Sabies que...</h3>
                             <ul>
-                                <li>És possible vincular el teu <strong class="bold-text">telèfon fixe al WhatsApp Business</strong> i tenir ambdues apps al teu terminal vinculades a números diferents.</li>
-                                <li>Whatsapp Business et permetrà crear un <strong class="bold-text">perfil de negoci</strong> en el qual podràs indicar informació relativa a l'adreça, el correu electrònic, <strong class="bold-text">xarxes socials...</strong></li>
-                                <li>Et permetrà disposar d'<strong class="bold-text">estadístiques d'ús</strong> de la teva clientela.</li>
-                                <li>Des de <strong class="bold-text"><u>web.whatsapp.com</u></strong> podràs iniciar la teva sessió en <strong class="bold-text">fins a 5 dispositius</strong> <small>(el terminal mòbil on està instal·lat, ordinadors i tauletes)</small></li>
+                                <li>És possible vincular el teu <strong class="bold-text">telèfon fixe al WhatsApp
+                                        Business</strong> i tenir ambdues apps al teu terminal vinculades a números
+                                    diferents.</li>
+                                <li>Whatsapp Business et permetrà crear un <strong class="bold-text">perfil de
+                                        negoci</strong> en el qual podràs indicar informació relativa a l'adreça, el
+                                    correu electrònic, <strong class="bold-text">xarxes socials...</strong></li>
+                                <li>Et permetrà disposar d'<strong class="bold-text">estadístiques d'ús</strong> de la
+                                    teva clientela.</li>
+                                <li>Des de <strong class="bold-text"><u>web.whatsapp.com</u></strong> podràs iniciar la
+                                    teva sessió en <strong class="bold-text">fins a 5 dispositius</strong> <small>(el
+                                        terminal mòbil on està instal·lat, ordinadors i tauletes)</small></li>
                             </ul>
                         </div>
-
 
                         <div class="info-box">
                             <h3>Pren nota de...</h3>
                             <ul>
-                                <li>Si et vols comunicar amb la clientela a través de WhatsApp és <strong class="bold-text">recomanable que, per privacitat, sigui primer la persona interessada el que et contacti.</strong></li>
-                                <li>L'ús de la missatgeria instantània no significa enviar missatges <strong class="bold-text">comercials massius</strong> a tots els contactes. És una pràctica que <strong class="bold-text">pot generar rebuig per part de la clientela.</strong></li>
-                                <li>Per ordenar la teva agenda professional pots utilitzar <strong class="bold-text">paraules clau</strong> quan desis els contactes. T'ajudarà a <strong class="bold-text">agilitzar-ne les converses.</strong></li>
-                                <li>Per mitjà de les <strong class="bold-text">etiquetes o llistes de difusió</strong> podràs organitzar comunicacions <strong class="bold-text">segmentades</strong> en funció del perfil de clientela i el seu vincle amb el teu negoci.</li>
+                                <li>Si et vols comunicar amb la clientela a través de WhatsApp és <strong
+                                        class="bold-text">recomanable que, per privacitat, sigui primer la persona
+                                        interessada el que et contacti.</strong></li>
+                                <li>L'ús de la missatgeria instantània no significa enviar missatges <strong
+                                        class="bold-text">comercials massius</strong> a tots els contactes. És una
+                                    pràctica que <strong class="bold-text">pot generar rebuig per part de la
+                                        clientela.</strong></li>
+                                <li>Per ordenar la teva agenda professional pots utilitzar <strong
+                                        class="bold-text">paraules clau</strong> quan desis els contactes. T'ajudarà a
+                                    <strong class="bold-text">agilitzar-ne les converses.</strong>
+                                </li>
+                                <li>Per mitjà de les <strong class="bold-text">etiquetes o llistes de difusió</strong>
+                                    podràs organitzar comunicacions <strong class="bold-text">segmentades</strong> en
+                                    funció del perfil de clientela i el seu vincle amb el teu negoci.</li>
                             </ul>
                         </div>
                     </div>
 
-
                     <div class="right-col right-col-3">
                         <!-- IMATGE video-placeholder.jpg -->
                         <div class="image-box" onclick="simulateVideoClick()">
-                            <img src="../img/video-placeholder.jpg" alt="Monitor amb un vídeo tutorial de WhatsApp Business, utilitzable per a la clientela.">
+                            <img src="../assets/img/video-placeholder.jpg"
+                                alt="Monitor amb un vídeo tutorial de WhatsApp Business, utilitzable per a la clientela.">
                         </div>
                         <div class="tutorial-details">
-                            <p style="margin-top: 20px;">En aquest tutorial t'expliquem com treure millor rendiment de la missatgeria instantània en el teu negoci. Ho fem mitjançant l'explicació d'una eina concreta: el <strong class="bold-text">WhatsApp Business</strong>.</p>
+                            <p style="margin-top: 20px;">En aquest tutorial t'expliquem com treure millor rendiment de
+                                la missatgeria instantània en el teu negoci. Ho fem mitjançant l'explicació d'una eina
+                                concreta: el <strong class="bold-text">WhatsApp Business</strong>.</p>
                             <p><strong class="bold-text" style="color:#000;">Els ítems que abordem són:</strong></p>
                             <ul>
                                 <li><strong class="bold-text">Què és WhatsApp Business?</strong></li>
                                 <li><strong class="bold-text">Per a què serveix?</strong></li>
                                 <li><strong class="bold-text">Quines millores t'hi pot aportar?</strong></li>
                             </ul>
-                            <p style="margin-top: 15px; font-size: 0.9rem; font-style: italic; color: #666;">Fes clic sobre la imatge per visualitzar el videotutorial i recorda que <strong class="bold-text">s'obriria al navegador.</strong></p>
+                            <p style="margin-top: 15px; font-size: 0.9rem; font-style: italic; color: #666;">Fes clic
+                                sobre la imatge per visualitzar el videotutorial i recorda que <strong
+                                    class="bold-text">s'obriria al navegador.</strong></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
 
         <!-- DIAPOSITIVA 4 -->
         <div class="slide" id="slide-3">
@@ -169,73 +237,87 @@
                 <div class="banner-box">
                     <!-- Icona de botiga -->
                     <div class="banner-icon">
-                        <img src="../img/botiga.jpg" alt="Icona de botiga">
+                        <img src="../assets/img/botiga.jpg" alt="Icona de botiga">
                     </div>
-                    <p>Una xarcuteria-carnisseria d'Amposta vol oferir un servei molt més personalitzat a la seva clientela que permeti resoldre dubtes, facilitar la compra, generar valor al voltant dels seus elaborats càrnics i <strong class="bold-text">mantenir la clientela contínuament informada de qualsevol aspecte important.</strong></p>
+                    <p>Una xarcuteria-carnisseria d'Amposta vol oferir un servei molt més personalitzat a la seva
+                        clientela que permeti resoldre dubtes, facilitar la compra, generar valor al voltant dels seus
+                        elaborats càrnics i <strong class="bold-text">mantenir la clientela contínuament informada de
+                            qualsevol aspecte important.</strong></p>
                 </div>
-
 
                 <div class="slide-content-grid slide-4-grid">
                     <div>
                         <h3 style="display:flex; align-items:center; gap:10px;">
                             <!-- Icona d'engranatge -->
                             <span class="step-icon">
-                                <img src="../img/engranatge.jpg" alt="Icona d'Engranatge">
+                                <img src="../assets/img/engranatge.jpg" alt="Icona d'Engranatge">
                             </span>
                             Quins elements cal preparar?
                         </h3>
-                       
+
                         <div class="step-item">
                             <div class="step-number">1</div>
-                            <div><strong class="bold-text">Creació de perfil del negoci a WhatsApp:</strong> inclou informació important per a la teva clientela (adreça, horari d'atenció, lloc web, xarxes socials i possibilitat d'entrega a domicili o no).</div>
+                            <div><strong class="bold-text">Creació de perfil del negoci a WhatsApp:</strong> inclou
+                                informació important per a la teva clientela (adreça, horari d'atenció, lloc web, xarxes
+                                socials i possibilitat d'entrega a domicili o no).</div>
                         </div>
                         <div class="step-item">
                             <div class="step-number">2</div>
-                            <div><strong class="bold-text">Organització de l'agenda:</strong> cal etiquetar els contactes de WhatsApp amb paraules clau que permetin enviar missatges personalitzats a cada tipus de persona consumidora. Prèviament, necessitaràs conèixer quin és el comportament de la teva clientela i indicar que desin el teu número de telèfon al seu terminal per compliment de RGPD.</div>
+                            <div><strong class="bold-text">Organització de l'agenda:</strong> cal etiquetar els
+                                contactes de WhatsApp amb paraules clau que permetin enviar missatges personalitzats a
+                                cada tipus de persona consumidora. Prèviament, necessitaràs conèixer quin és el
+                                comportament de la teva clientela i indicar que desin el teu número de telèfon al seu
+                                terminal per compliment de RGPD.</div>
                         </div>
                         <div class="step-item">
                             <div class="step-number">3</div>
-                            <div><strong class="bold-text">Automatització de missatges:</strong> programa el contingut del missatge a enviar fora de l'horari comercial, o en aquell horari que indiquis. Així, quan no tinguis disponibilitat per respondre, WhatsApp ho farà automàticament.</div>
+                            <div><strong class="bold-text">Automatització de missatges:</strong> programa el contingut
+                                del missatge a enviar fora de l'horari comercial, o en aquell horari que indiquis. Així,
+                                quan no tinguis disponibilitat per respondre, WhatsApp ho farà automàticament.</div>
                         </div>
                     </div>
-
 
                     <div>
                         <h3 style="display:flex; align-items:center; gap:10px;">
                             <!-- Icona de mesurador de velocitat (nova icona) -->
                             <span class="step-icon">
-                                <img src="../img/vel.jpg" alt="Icona de mesurador de velocitat o eficiència">
+                                <img src="../assets/img/vel.jpg" alt="Icona de mesurador de velocitat o eficiència">
                             </span>
                             Quins beneficis et pot suposar?
                         </h3>
 
-
                         <div class="benefit-item">
                             <div class="benefit-icon">
                                 <!-- Icona 1 (Objectiu) -->
-                                <img src="../img/1.jpg" alt="Icona d'objectiu o personalització">
+                                <img src="../assets/img/1.jpg" alt="Icona d'objectiu o personalització">
                             </div>
-                            <div><strong class="bold-text">Personalitza el servei:</strong> amb aquesta nova iniciativa, la xarcuteria-carnisseria millorarà el servei cap a la seva clientela.</div>
+                            <div><strong class="bold-text">Personalitza el servei:</strong> amb aquesta nova iniciativa,
+                                la xarcuteria-carnisseria millorarà el servei cap a la seva clientela.</div>
                         </div>
                         <div class="benefit-item">
                             <div class="benefit-icon">
                                 <!-- Icona 2 (Persona amb cistella) -->
-                                <img src="../img/2.jpg" alt="Icona d'increment de vendes">
+                                <img src="../assets/img/2.jpg" alt="Icona d'increment de vendes">
                             </div>
-                            <div><strong class="bold-text">Incrementa les vendes:</strong> l'ús de WhatsApp pot ajudar a donar conèixer i posar en valor els teus productes de valor afegit, <strong class="bold-text">els elaborats casolans que singularitzen el teu negoci.</strong></div>
+                            <div><strong class="bold-text">Incrementa les vendes:</strong> l'ús de WhatsApp pot ajudar a
+                                donar conèixer i posar en valor els teus productes de valor afegit, <strong
+                                    class="bold-text">els elaborats casolans que singularitzen el teu negoci.</strong>
+                            </div>
                         </div>
                         <div class="benefit-item">
                             <div class="benefit-icon">
                                 <!-- Icona 3 (mà amb rellotge/temps) -->
-                                <img src="../img/3.jpg" alt="Icona de fidelització">
+                                <img src="../assets/img/3.jpg" alt="Icona de fidelització">
                             </div>
-                            <div><strong class="bold-text">Fidelitza la clientela:</strong> amb la introducció d'aquest servei, la xarcuteria estarà més present al dia a dia de la clientela, sense <strong class="bold-text">necessitat que aquesta s'hi personi sempre físicament al local.</strong></div>
+                            <div><strong class="bold-text">Fidelitza la clientela:</strong> amb la introducció d'aquest
+                                servei, la xarcuteria estarà més present al dia a dia de la clientela, sense <strong
+                                    class="bold-text">necessitat que aquesta s'hi personi sempre físicament al
+                                    local.</strong></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
 
         <!-- CONTROL DE NAVEGACIÓ (Centrats verticalment) -->
         <div class="controls">
@@ -245,7 +327,7 @@
             <button id="nextBtn" class="nav-btn" onclick="nextSlide()">&gt;</button>
         </div>
 
-
     </div>
 </body>
+
 </html>

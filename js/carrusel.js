@@ -4,6 +4,47 @@ const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 const totalSlides = slides.length;
 
+// Títulos de las diapositivas para los breadcrumbs
+const slideTitles = [
+    "La missatgeria instantània",
+    "Com et pot ajudar a vendre",
+    "WhatsApp professional",
+    "Exemple pràctic"
+];
+
+// Función para actualizar los breadcrumbs
+function updateBreadcrumbs(slideIndex) {
+    const breadcrumbs = document.querySelector('.breadcrumbs');
+    if (!breadcrumbs) return;
+
+    // Limpiar breadcrumbs y reconstruir
+    breadcrumbs.innerHTML = '';
+
+    // Añadir "Inici"
+    const iniciItem = document.createElement('li');
+    const iniciLink = document.createElement('a');
+    iniciLink.href = '../index.html';
+    iniciLink.textContent = 'Inici';
+    iniciItem.appendChild(iniciLink);
+    breadcrumbs.appendChild(iniciItem);
+
+    // Añadir "Digitalització"
+    const digitalitzacioItem = document.createElement('li');
+    const digitalitzacioLink = document.createElement('a');
+    digitalitzacioLink.href = '../pages/digitalitzacio.html';
+    digitalitzacioLink.textContent = 'Digitalització';
+    digitalitzacioItem.appendChild(digitalitzacioLink);
+    breadcrumbs.appendChild(digitalitzacioItem);
+
+    // Añadir la diapositiva actual
+    if (slideIndex >= 0 && slideIndex < slideTitles.length) {
+        const currentItem = document.createElement('li');
+        currentItem.setAttribute('aria-current', 'page');
+        currentItem.textContent = slideTitles[slideIndex];
+        breadcrumbs.appendChild(currentItem);
+    }
+}
+
 // Funció per simular el clic del vídeo a la diapositiva 3 (evitem alert() i confirm())
 function simulateVideoClick() {
     const videoBox = document.querySelector('#slide-2 .right-col-3 > .image-box');
@@ -63,6 +104,9 @@ function showSlide(index) {
     nextBtn.disabled = (index === totalSlides - 1);
 
     currentSlide = index;
+
+    // Actualizar breadcrumbs
+    updateBreadcrumbs(index);
 }
 
 
@@ -79,5 +123,7 @@ function prevSlide() {
     }
 }
 
-// Mostrar la primera diapositiva en carregar
-showSlide(0);
+// Mostrar la primera diapositiva en carregar y actualizar breadcrumbs
+document.addEventListener("DOMContentLoaded", () => {
+    showSlide(0);
+});
