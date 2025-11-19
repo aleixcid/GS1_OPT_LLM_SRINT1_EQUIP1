@@ -1,8 +1,6 @@
 :root {
   --sidebar-width: 300px;
-  /* ancho panel filtros */
   --sidebar-gap: 16px;
-  /* separación entre sidebar y contenido */
   --content-max: 1200px;
   --bg: #d7d7e0;
   --panel: #bdbdcc;
@@ -13,11 +11,8 @@
   --danger: #b91c1c;
   --danger-2: #dc2626;
   --nav-height: 70px;
-  /* altura del navbar global */
   --topbar-height: 120px;
-  /* altura aproximada del topbar (padding + contenido) */
-  --footer-height: 90px;
-
+  --footer-height: 80px;
 }
 
 /* BASE */
@@ -138,9 +133,12 @@ body {
 }
 
 .topbar {
-  position: sticky;
+  position: fixed;
   /* permanece arriba al hacer scroll */
   top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 50;
   background: var(--panel);
   border-bottom: 4px solid var(--panel-border);
@@ -149,11 +147,12 @@ body {
 
 .topbar-inner {
   max-width: calc(var(--content-max) + var(--sidebar-width) + var(--sidebar-gap));
-  margin: 0px;
+  margin: 0 auto;
   padding: 20px;
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  width: 100%;
 }
 
 .titulo {
@@ -177,23 +176,24 @@ body {
 /* Sidebar fija a la izquierda */
 .sidebar {
   position: fixed;
-  top: var(--topbar-height);
+  top: calc(var(--topbar-height) + 1rem);
   left: 1rem;
   width: min(var(--sidebar-width), calc(100vw - 3rem));
   /* restamos 2 márgenes + separación con cards */
   max-width: calc(100% - 2rem);
   /* evita que crezca más allá del viewport */
-  height: calc(100vh - var(--topbar-height) - var(--footer-height) - 1rem);
+  height: calc(100vh - var(--topbar-height) - var(--footer-height) - 2rem);
   overflow: auto;
   background: #cfd1dc;
   border: 1px solid #b3b6c5;
   border-radius: 8px;
-  padding: 20px 10px 10px 10px;
-  margin-top: 3px;
+  padding: 0 10px 10px 10px;
+  margin-top: 0;
 }
 
 .sidebar h3 {
-  margin-top: 0;
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .field {
@@ -214,13 +214,18 @@ body {
 .cards-area {
   min-width: 0;
   padding: 0 1rem 2rem;
-  margin-top: 0;
-  padding-top: 0;
+  margin-top: calc(var(--topbar-height) + 1rem);
+  padding-top: 1rem;
+}
+
+#empreses-container {
+  margin: 0;
+  padding: 0;
 }
 
 /* TARJETAS DE EMPRESA */
 .empresa-card {
-  margin: 1rem auto;
+  margin: 0 auto 16px auto;
   padding: 1rem;
   border-radius: 12px;
   background-color: #f9f9f9;
@@ -228,6 +233,10 @@ body {
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   max-width: var(--content-max);
+}
+
+.empresa-card:first-child {
+  margin-top: 0;
 }
 
 .empresa-card:hover {
