@@ -1,1 +1,15 @@
+1. He separat els Estils (CSS) He agafat tot el codi que estava dins les etiquetes <style> de l'arxiu original, l'he tret d'allà i l'he enganxat en un nou fitxer independent anomenat styles.css. Així tinc el disseny separat de l'estructura.
 
+2. He netejat i vinculat l'HTML Al fitxer .html, he eliminat el CSS i el JS antics. Després, he afegit dues línies de codi per connectar els nous fitxers:
+
+Al head, he posat un <link> per cridar el full d'estils.
+
+Al final del body, he posat un <script> per carregar la lògica.
+
+3. He reconstruït les parts que faltaven Com que el codi original estava tallat, he hagut d'escriure de nou l'HTML de la Diapositiva 4 i els botons de navegació (<button>), assegurant-me que coincidissin amb les classes que ja tenia definides al CSS (com .step-number o .controls).
+
+4. He creat la lògica (JavaScript) He creat el fitxer .js i hi he programat les funcions necessàries perquè el carrusel "giri":
+
+Detectar el clic als botons.
+
+5. He gestionat el control de versions (Git) Finalment, he intentat pujar els canvis al repositori. M'he trobat amb que la branca remota tenia canvis que jo no tenia (error non-fast-forward), així que he hagut de sincronitzat (pull) primer el que hi havia al núvol per poder pujar (push) la meva feina correctament.
