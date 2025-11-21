@@ -1,0 +1,26 @@
+# Documentación CSS del proyecto Montsià30
+
+Este paquete describe los estilos principales del proyecto, con foco en:
+- Estructura y layout
+- Navbar y Footer globales
+- Intranet (login, cabecera fija, filtros laterales, tarjetas)
+- Comportamiento responsive y variables CSS
+
+Archivos documentados:
+- [intranet.css](./intranet.md)
+- [navbar.css](./navbar.md)
+- [style.css (home)](./style-home.md)
+
+Convenciones generales
+- Variables CSS en :root para anchuras, colores y alturas (topbar, footer).
+- Layout con combinaciones de:
+  - position: fixed/sticky para cabeceras y paneles fijos
+  - grid/flex para distribución
+  - calc() para respetar paddings y columnas
+- Responsivo con breakpoints a 900/800/740px (según archivo), evitando solapamientos.
+- Sombra inferior como patrón visual de elevación: `box-shadow: 0 12px 10px -7px rgba(0,0,0,.4)`.
+
+Accesibilidad y usabilidad
+- Contrastado de botones y fondos.
+- Estados hover/focus visibles en componentes interactivos.
+- Sticky/fixed con relleno superior en body/áreas para que el contenido no quede tapado.
