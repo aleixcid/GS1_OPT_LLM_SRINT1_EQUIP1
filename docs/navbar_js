@@ -1,0 +1,101 @@
+# js/navbar.js
+
+Funcionalidad del menú desplegable para:
+- La barra global superior (global-nav)
+- La topbar interna de la Intranet (topbar)
+
+El script se carga tras el DOM (DOMContentLoaded) y añade listeners a los botones de menú para abrir/cerrar sus desplegables, actualizar atributos ARIA y cerrar al hacer clic fuera.
+
+Resumen de comportamiento
+- Click en el botón “Seccions” abre/cierra el menú (clase .open en el contenedor).
+- aria-expanded cambia a true/false según el estado para accesibilidad.
+- Click fuera de la zona del menú cierra el desplegable.
+- El script soporta dos ubicaciones independientes:
+  - .global-nav__menu (navbar global presente en home y otras páginas)
+  - .topbar-menu (menú de la cabecera fija en la Intranet)
+
+Código (referencia)
+```js
+document.addEventListener("DOMContentLoaded", () => {
+  // Menú en la barra global
+  const globalNavMenuToggle = document.querySelector(
+    ".global-nav__menu .menu-toggle"
+  );
+
+  if (globalNavMenuToggle) {
+    globalNavMenuToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const menu = globalNavMenuToggle.closest(".global-nav__menu");
+      menu?.classList.toggle("open");
+
+      const isOpen = menu?.classList.contains("open");
+      globalNavMenuToggle.setAttribute("aria-expanded", isOpen);
+    });
+
+    // Cierre al hacer clic fuera
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".global-nav__menu")) {
+        const menu = document.querySelector(".global-nav__menu");
+        menu?.classList.remove("open");
+        globalNavMenuToggle?.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  // Menú en la topbar de Intranet
+  const topbarMenuToggle = document.querySelector(".topbar-menu .menu-toggle");
+
+  if (topbarMenuToggle) {
+    topbarMenuToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const menu = topbarMenuToggle.closest(".topbar-menu");
+      if (menu) {
+        const isOpen = menu.classList.toggle("open");
+        topbarMenuToggle.setAttribute("aria-expanded", isOpen);
+      }
+    });
+
+    // Cierre al hacer clic fuera
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".topbar-menu")) {
+        const menu = document.querySelector(".topbar-menu");
+        if (menu) {
+          menu.classList.remove("open");
+          topbarMenuToggle.setAttribute("aria-expanded", "false");
+        }
+      }
+    });
+  }
+});
+```
+
+Detalles técnicos
+- Delegación mínima: se buscan directamente los botones con querySelector. Si en alguna vista no existe una de las barras, el bloque se omite (condicional if).
+- Control del estado:
+  - Se usa classList.toggle("open") en el contenedor para mostrar/ocultar el ul.menu-dropdown vía CSS.
+  - Se sincroniza aria-expanded en el botón para lectores de pantalla.
+- Click fuera:
+  - Un listener global al document cierra el menú si el click no ocurre dentro del contenedor (.global-nav__menu o .topbar-menu).
+  - Se evita el cierre inmediato al pulsar el botón usando stopPropagation().
+
+Relación con CSS
+- El CSS de navbar controla la animación/visibilidad:
+  - .menu-dropdown está oculto por defecto (opacity/pointer-events/transform).
+  - Cuando el contenedor tiene .open, el dropdown pasa a visible.
+- Este JS no gestiona estilos en línea; solo clases y atributos ARIA.
+
+Buenas prácticas y accesibilidad
+- aria-haspopup y aria-expanded en el botón para comunicar estado a tecnologías de asistencia.
+- stopPropagation evita conflictos con el click global de cierre.
+- Se podría extender con:
+  - Cierre con tecla Escape.
+  - Enfoque al primer item del menú al abrir.
+  - Trampa de foco dentro del dropdown si se requiere.
+
+Posibles mejoras (opcional)
+- Reutilizar una función genérica initDropdown(toggleSelector, containerSelector).
+- Cerrar al perder foco del toggle si no se entra al menú en X ms (delay).
+- Añadir soporte para apertura por teclado (Enter/Espacio) explícito si no lo maneja el navegador.
+
+Dependencias
+- Sin dependencias externas. Funciona con JavaScript nativo.
