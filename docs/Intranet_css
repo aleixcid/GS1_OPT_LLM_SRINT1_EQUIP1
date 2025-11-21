@@ -1,0 +1,78 @@
+# intranet.css
+
+Define estilos de la Intranet: login, cabecera fija con título y botón de “Tancar sessió”, panel lateral de filtros fijo y tarjetas de empresas con zoom de imagen.
+
+Secciones clave:
+- Variables
+- Base
+- Login
+- Botones
+- Topbar fija
+- Línea divisora (divider)
+- Layout (sidebar fija + cards-area)
+- Tarjetas de empresa + bloques de encuesta
+- Overlay de imágenes
+- Responsive
+
+Variables (:root)
+- --sidebar-width, --sidebar-gap: ancho y separación del panel de filtros.
+- --content-max: ancho máximo del contenido (tarjetas).
+- --panel, --panel-border: colores de paneles (cabecera, login, sidebar).
+- --topbar-height, --footer-height: alturas para cálculos de offset.
+- --brand / --brand-2 / --danger: colores de botones.
+
+Login
+- Contenedor centrado (max-width: 400–600 px según versión).
+- Formulario en columna con gap y bordes redondeados.
+- Mensaje de error rojo (#b91c1c).
+- Clase .hidden para ocultar login o contenido según sesión.
+
+Topbar fija (header)
+- position: sticky o fixed (según versión) en la parte superior.
+- .topbar-inner dispone título a la izquierda y botón “Tancar sessió” a la derecha.
+- Sombra inferior para separar visualmente del contenido.
+- Cuando es fixed, las zonas inferiores (sidebar/cards) compensan con margin/padding-top.
+
+Divisor (divider)
+- Barra horizontal bajo la cabecera (90% del ancho del contenido).
+- Color semitransparente con sombra suave.
+- Refuerza la separación semántica entre cabecera y cuerpo.
+
+Layout (filtros + tarjetas)
+- .intranet-layout: limita el ancho total y aplica padding-left para reservar el espacio de la sidebar.
+- .sidebar:
+  - position: fixed; top: calculado tras cabecera
+  - height: calc(100vh - topbar - footer)
+  - overflow: auto para scroll interno
+  - inputs/select con padding, bordes y fondo claro
+- .cards-area:
+  - deja margen superior para no quedar bajo la topbar
+  - padding lateral para respiración
+
+Tarjetas y encuestas
+- .empresa-card con sombra y hover sutil (levanta 2px).
+- .empresa-header: thumb + título con flex, gap de 14 px.
+- .empresa-detalls: bloque plegable con borde superior.
+- Bloques de encuesta (.enquesta-block): fondo y borde diferenciados, botón primario consistente.
+
+Overlay de imágenes
+- .image-overlay: fixed a toda pantalla, fondo oscuro 0.65.
+- .show para mostrar/ocultar.
+- La imagen respeta max-width/height y añade sombra.
+
+Responsive
+- Puntos a 900/800 px:
+  - Sidebar pasa a flujo normal (position: static).
+  - Se reduce ancho de miniatura (de 180 a 140 px).
+  - Se ajusta padding y márgenes para pantallas pequeñas.
+- Se evita el solapamiento de la topbar con margin-top/padding-top en .cards-area.
+
+Buenas prácticas aplicadas
+- Uso extensivo de variables CSS para ajustar el layout sin tocar muchas reglas.
+- Cálculos guardando coherencia: topbar + sidebar + gap = padding-left/margin-top.
+- Sombras y esquinas redondeadas homogéneas para una estética consistente.
+
+Dependencias/relación con JS
+- La clase .hidden es controlada por JS para mostrar login o contenido.
+- El overlay se activa/desactiva con .show desde eventos de click.
+- Los filtros del sidebar disparan el render de las tarjetas (JS) sin afectar el CSS.
