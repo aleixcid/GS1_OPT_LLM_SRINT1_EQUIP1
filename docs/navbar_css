@@ -1,0 +1,50 @@
+# navbar.css
+
+Define una barra de navegación fija arriba (global-nav) y un footer fijo abajo (global-footer). También incluye el menú desplegable y enlaces de utilidad.
+
+Objetivos
+- Mantener el header siempre visible.
+- Evitar que tape el contenido (body añade padding-top).
+- Menú accesible y ligero, con focus y hover visibles.
+- Footer fijo con branding/equipo y año dinámico.
+
+Estructura
+- .global-nav: barra fija superior (position: fixed; z-index alto).
+- .global-nav__inner: contenedor flex con:
+  - .global-nav__menu: botón “Seccions” y ul.menu-dropdown
+  - .letra-nav: enlace a repositorio/equipo a la derecha
+- .global-footer: barra fija inferior
+
+Comportamiento visual
+- Background semitransparente (rgba(182, 183, 197, 0.95)) y sombra inferior.
+- En hover de la nav se reduce sutilmente la sombra (efecto lift).
+- Menú desplegable:
+  - absolute bajo el botón
+  - oculto por defecto (opacity: 0; pointer-events: none; transform)
+  - visible con clase .open en .global-nav__menu
+
+Botones y enlaces
+- .menu-toggle: botón redondo, tipografía uppercase, padding generoso.
+- .menu-dropdown li a: padding vertical, color claro y hover de fondo translúcido.
+- .letra-nav: “pill” a la derecha, con mayúsculas y espaciado de letras.
+
+Footer
+- .global-footer: fixed abajo, sombra superior (negativa), flex column centrado.
+- .lletra-esquina: badge con nombres del equipo.
+- .footer-copy: tipografía pequeña; el año se actualiza con JS.
+
+Responsive
+- Breakpoint ~740 px:
+  - Se fuerza min-width: 740 px para evitar que los elementos se rompan (layout horizontal).
+  - Se ajustan paddings y tamaños tipográficos.
+- Consideración: el body añade padding-top y padding-bottom iguales a la altura de nav y footer para que el contenido nunca quede tapado.
+
+Accesibilidad
+- Atributos aria en el botón (aria-haspopup/expanded).
+- Focus visible en botones y enlaces (heredado de hover).
+- Menú controlado por JS cambiando la clase .open del contenedor.
+
+Integración con JS
+- navbar.js:
+  - Alterna .open en .global-nav__menu al click del botón.
+  - Puede cerrarse al hacer click fuera o al pulsar Escape (opcional).
